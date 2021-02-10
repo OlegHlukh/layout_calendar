@@ -14,5 +14,6 @@
 @mixin cellHover {
   background-color: #ffc0cb;
   transform: translateY(-20px);
+  transition: transform 1s, background-color 1s;
   cursor: pointer;
 }
