@@ -1,0 +1,18 @@
+@mixin defaultCell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $cellSize;
+  flex-basis: $cellSize;
+  background-color: #eee;
+  border: 1px solid #000;
+  margin-right: $marginCell;
+  margin-bottom: $marginCell;
+  font-size: $fontSize;
+}
+
+@mixin cellHover {
+  background-color: #ffc0cb;
+  transform: translateY(-20px);
+  cursor: pointer;
+}

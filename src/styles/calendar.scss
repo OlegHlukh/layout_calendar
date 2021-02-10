@@ -1,0 +1,45 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.calendar {
+  display: flex;
+  flex-wrap: wrap;
+  width: ($cellSize + $marginCell) * 7;
+
+  div {
+    @include defaultCell;
+
+    &:hover {
+      @include cellHover;
+    }
+  }
+}
+
+@for $i from 28 through 31 {
+  .calendar-#{$i} {
+    @for $j from 1 through $i {
+      & :nth-child(#{$j})::before {
+        content: "#{$j}";
+      }
+    }
+  }
+}
+
+@for $i from 28 through 30 {
+  .calendar-#{$i} {
+    :nth-child(n + #{$i + 1}) {
+      display: none;
+    }
+  }
+}
+
+@each $day, $index in $daysInWeek {
+  .calendar-#{$day} div:first-child {
+    margin-left: ($cellSize + $marginCell) * $index;
+  }
+}
